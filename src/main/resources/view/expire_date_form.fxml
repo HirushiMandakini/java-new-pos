@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="expPane" prefHeight="979.0" prefWidth="1824.0" style="-fx-background-color: F6F6F6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ExpireDateFormController">
+   <children>
+      <AnchorPane layoutX="48.0" layoutY="48.0" prefHeight="883.0" prefWidth="1722.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 20;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label layoutX="70.0" layoutY="166.0" prefHeight="27.0" prefWidth="148.0" text="From Date">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="946.0" layoutY="197.0" onAction="#btnFilterOnAction" prefHeight="39.0" prefWidth="209.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="Filter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="508.0" layoutY="166.0" prefHeight="27.0" prefWidth="148.0" text="To Date">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblExp" layoutX="113.0" layoutY="280.0" prefHeight="510.0" prefWidth="1500.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="244.0" text="Product Id" />
+                  <TableColumn fx:id="colName" prefWidth="269.9999694824219" text="Product Name" />
+                  <TableColumn fx:id="colPrice" prefWidth="284.0" text="Selling Price" />
+                  <TableColumn fx:id="colQty" prefWidth="247.0" text="Qty" />
+                  <TableColumn fx:id="colMFD" prefWidth="250.0" text="MFD" />
+                  <TableColumn fx:id="colEXP" prefWidth="247.0" text="EXP" />
+              </columns>
+            </TableView>
+            <DatePicker fx:id="fromDate" layoutX="70.0" layoutY="197.0" prefHeight="39.0" prefWidth="309.0" />
+            <DatePicker fx:id="toDate" layoutX="508.0" layoutY="197.0" prefHeight="39.0" prefWidth="309.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="732.0" layoutY="50.0" prefHeight="47.0" prefWidth="261.0" text="Expire Date Details" AnchorPane.topAnchor="60.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+drop database if exists possystem;
+create database possystem;
+use possystem;
+
+create table employee(
+    emp_email varchar(50) primary key ,
+    emp_pword varchar(50),
+    position varchar(50),
+    f_name varchar(50),
+    l_name varchar(50),
+    nic varchar(50),
+    address varchar(50),
+    gender varchar(50),
+    contact_num varchar (50),
+    date date
+);
+create table customer(
+    mobile varchar(30) primary key ,
+    f_name varchar(40),
+    l_name varchar(40),
+    address varchar(50),
+    date date
+);

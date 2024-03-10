@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootAdd" prefHeight="794.0" prefWidth="1100.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.EmployeeAddingFormController">
+   <children>
+      <ImageView fitHeight="814.0" fitWidth="1100.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../assets/Green%20and%20White%20Photographic%20Blogger%20Bio-Link%20Website%20(3)%201.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="120.0" layoutY="78.0" prefHeight="659.0" prefWidth="840.0" style="-fx-background-color: white; -fx-background-radius: 20;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="104.0">
+         <children>
+            <Label layoutX="100.0" layoutY="97.0" prefHeight="20.0" prefWidth="81.0" text="First Name" AnchorPane.bottomAnchor="549.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="659.0" AnchorPane.topAnchor="97.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFname" layoutX="100.0" layoutY="120.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="100.0" layoutY="197.0" prefHeight="20.0" prefWidth="81.0" text="Last Name">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtLname" layoutX="100.0" layoutY="220.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="457.0" layoutY="97.0" prefHeight="20.0" prefWidth="81.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="457.0" layoutY="120.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="457.0" layoutY="197.0" prefHeight="20.0" prefWidth="81.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPword" layoutX="457.0" layoutY="220.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="99.0" layoutY="290.0" prefHeight="20.0" prefWidth="81.0" text="NIC">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNic" layoutX="99.0" layoutY="313.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="456.0" layoutY="290.0" prefHeight="20.0" prefWidth="81.0" text="Position">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboPosition" layoutX="456.0" layoutY="314.0" onAction="#cmbPositionOnAction" prefHeight="35.0" prefWidth="285.0" />
+            <Label layoutX="99.0" layoutY="384.0" prefHeight="20.0" prefWidth="130.0" text="Contact Number">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCon" layoutX="99.0" layoutY="407.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="456.0" layoutY="384.0" prefHeight="20.0" prefWidth="81.0" text="Gender">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboGender" layoutX="456.0" layoutY="408.0" onAction="#cmbGenderOnAction" prefHeight="35.0" prefWidth="285.0" />
+            <Label layoutX="99.0" layoutY="481.0" prefHeight="20.0" prefWidth="130.0" text="Address">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtAdd" layoutX="99.0" layoutY="504.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <Label layoutX="456.0" layoutY="481.0" prefHeight="20.0" prefWidth="130.0" text="Register Date">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="DatePicker" layoutX="456.0" layoutY="503.0" prefHeight="35.0" prefWidth="285.0" />
+            <JFXButton buttonType="RAISED" layoutX="292.0" layoutY="582.0" onAction="#btnCreateAccOnAction" prefHeight="35.0" prefWidth="256.0" style="-fx-background-color: #1A4491; -fx-background-radius: 20;" text="Create Account" textFill="WHITE" AnchorPane.leftAnchor="292.0" AnchorPane.rightAnchor="292.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children></AnchorPane>
+      <Label layoutX="455.0" layoutY="40.0" prefHeight="27.0" prefWidth="190.0" text="Add Employee Details" textFill="WHITE" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

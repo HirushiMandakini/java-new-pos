@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="returnInvPane" prefHeight="979.0" prefWidth="1824.0" style="-fx-background-color: F6F6F6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ReturnInvoiceFormController">
+   <children>
+      <AnchorPane layoutX="48.0" layoutY="48.0" prefHeight="883.0" prefWidth="1722.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="709.0" layoutY="63.0" prefHeight="47.0" prefWidth="266.0" text="Return Invoice Details" AnchorPane.leftAnchor="709.0" AnchorPane.rightAnchor="709.0" AnchorPane.topAnchor="60.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblReturnInv" layoutX="74.0" layoutY="248.0" prefHeight="510.0" prefWidth="1500.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="280.0">
+              <columns>
+                <TableColumn fx:id="col1" prefWidth="250.0" text="Invoice Id" />
+                  <TableColumn fx:id="col2" prefWidth="250.0" text="Product Id" />
+                  <TableColumn fx:id="col3" prefWidth="250.0" text="Product Name" />
+                  <TableColumn fx:id="col4" prefWidth="270.0" text="qty" />
+                  <TableColumn fx:id="col5" prefWidth="267.0" text="Selling Price" />
+                  <TableColumn fx:id="col6" prefWidth="255.0" text="Stock Id" />
+              </columns>
+            </TableView>
+            <Label layoutX="70.0" layoutY="171.0" prefHeight="27.0" prefWidth="148.0" text="Search Invoice" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="166.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSearch" layoutX="70.0" layoutY="208.0" prefHeight="39.0" prefWidth="318.0" promptText="Enter Invoice Id" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="203.0" />
+            <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="352.0" layoutY="214.0" onMouseClicked="#searchOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/search%20(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

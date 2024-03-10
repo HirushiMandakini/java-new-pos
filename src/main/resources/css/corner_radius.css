@@ -1,0 +1,4 @@
+.btn{
+    -fx-background-radius: 0 60 60 0;//boarder radius
+    -fx-border-radius: 0 60 60 0;
+}

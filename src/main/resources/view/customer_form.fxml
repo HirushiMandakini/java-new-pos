@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="custPane" prefHeight="979.0" prefWidth="1824.0" style="-fx-background-color: #F6F6F6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CustomerFormController">
+   <children>
+      <AnchorPane layoutX="35.0" layoutY="98.0" prefHeight="833.0" prefWidth="1722.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 20;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <TableView fx:id="tblCus" layoutX="70.0" layoutY="280.0" prefHeight="510.0" prefWidth="1500.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+              <columns>
+                <TableColumn fx:id="col1" prefWidth="280.0" text="Contact Number" />
+                  <TableColumn fx:id="col2" prefWidth="301.0" text="First Name" />
+                  <TableColumn fx:id="col3" prefWidth="296.0" text="Last Name" />
+                  <TableColumn fx:id="col4" prefWidth="333.0" text="Email" />
+                  <TableColumn fx:id="col5" prefWidth="248.0" text="Address" />
+                  <TableColumn fx:id="colEdit" minWidth="0.0" prefWidth="43.0" text="Edit" />
+                  <TableColumn fx:id="colDelete" prefWidth="43.0" text="Delete" />
+              </columns>
+            </TableView>
+            <Label layoutX="70.0" layoutY="166.0" prefHeight="27.0" prefWidth="148.0" text="Search Customer">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSearchCustomer" layoutX="70.0" layoutY="204.0" prefHeight="39.0" prefWidth="318.0" promptText="Enter Find Email" style="-fx-background-radius: 20;" />
+            <JFXButton buttonType="RAISED" layoutX="449.0" layoutY="202.0" onAction="#btnAddCustomerOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="Add Customer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="353.0" layoutY="214.0" onMouseClicked="#searchOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/search%20(1).png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="744.0" layoutY="64.0" prefHeight="47.0" prefWidth="197.0" text="Customer Details" AnchorPane.bottomAnchor="748.0" AnchorPane.leftAnchor="744.0" AnchorPane.rightAnchor="743.0" AnchorPane.topAnchor="60.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

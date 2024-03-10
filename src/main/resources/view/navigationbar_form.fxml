@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.NavigationbarFormController">
+   <children>
+      <AnchorPane layoutX="-4.0" prefHeight="1083.0" prefWidth="144.0" style="-fx-background-color: #180452;">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="5.0" layoutY="858.0" onAction="#btnHistoryOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../assets/history.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="6.0" layoutY="778.0" onAction="#btnExpDateOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../assets/warning.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="6.0" layoutY="697.0" onAction="#btnStockOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../assets/stock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="6.0" layoutY="617.0" onAction="#btnReturnInvoiceOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../assets/return.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="6.0" layoutY="536.0" onAction="#btnGRNOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../assets/box.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="6.0" layoutY="456.0" onAction="#btnSupOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/parcel.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="376.0" onAction="#btnCusOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/users-avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="297.0" onAction="#btnEmpOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/businessman.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="217.0" onAction="#btnInvoiceOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/invoice.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="139.0" onAction="#btnHomeOnAction" prefHeight="78.0" prefWidth="135.0" stylesheets="@../css/button_hover.css" text=" " textFill="#090415">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="141.0" prefHeight="104.0" prefWidth="1823.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <ImageView fitHeight="86.0" fitWidth="115.0" layoutX="35.0" layoutY="10.0" pickOnBounds="true" smooth="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="1673.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../assets/WhatsApp_Image_2023-12-29_at_14%201.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane" layoutX="140.0" layoutY="104.0" prefHeight="979.0" prefWidth="1824.0" />
+   </children>
+</AnchorPane>
