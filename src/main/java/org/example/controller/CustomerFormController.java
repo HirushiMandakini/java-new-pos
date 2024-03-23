@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,7 +27,11 @@ import org.example.model.EmployeeModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import static org.example.model.CustomerModel.deleteCustomer;
 
 public class CustomerFormController {
     public AnchorPane custPane;
@@ -44,11 +45,11 @@ public class CustomerFormController {
     public TableColumn colEdit;
     public TableColumn colDelete;
 
-    static String StaticMobile=null;
+    static String StaticMobile="";
 
     private CustomerModel customerModel = new CustomerModel();
 
-    private CustomerAddingController employeeAddingController=new CustomerAddingController();
+    private CustomerAddingController customerAddingController=new CustomerAddingController();
     private ObservableList<CustomerTm>obList = FXCollections.observableArrayList();
 
     public void initialize(){
@@ -157,12 +158,109 @@ public class CustomerFormController {
     }
 
     private void setDeleteBtnOnAction(Button delete, String mobile) {
+        delete.setOnAction((e) -> {
+                    ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to delete?", yes, no).showAndWait();
+
+                    if (type.orElse(no) == yes) {
+                        obList.removeIf(customerTm -> customerTm.getMobile().equals(mobile));
+                        tblCus.refresh();
+                        deleteCustomer(mobile);
+
+                    }
+                }
+        );
+    }
+    private void deleteCustomer(String id) {
+        try {
+            boolean isDeleted = EmployeeModel.deleteEmployee(id);
+            if(isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted!").show();
+            } else {
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer not deleted!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        tblCus.refresh();
+        loadAllCustomer();
     }
 
-    public void btnAddCustomerOnAction(ActionEvent actionEvent) {
-    }
+    public void btnAddCustomerOnAction(ActionEvent actionEvent) throws IOException {
+        Parent anchorpane = FXMLLoader.load(getClass().getResource("/view/customer_adding .fxml"));
+        Scene scene = new Scene(anchorpane);
+
+        Stage stage = new Stage();
+        stage.setTitle("Customer Adding Form");
+        stage.setScene(scene);
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                loadAllCustomer();
+            }
+        });
+        stage.centerOnScreen();
+        stage.show();    }
 
     public void searchOnAction(MouseEvent mouseEvent) {
+    }
+
+    public void txtSearchCustomerOnAction(ActionEvent actionEvent) throws SQLException {
+        String text = txtSearchCustomer.getText();
+        ArrayList<CustomerDto> customerDtos = customerModel.searchByMobile(text);
+        tblCus.getItems().clear();
+
+        for (CustomerDto dto : customerDtos){
+
+            ////////// Update button////////////////////
+            Button update = new Button();
+            setUpdateBtnOnAction(update, dto.getMobile());
+            update.setOnMouseEntered(e -> {
+                update.setStyle("-fx-background-color:  #82CD47;");
+            });
+            update.setStyle("-fx-background-color:  #379237");
+            update.setOnMouseExited(e -> {
+                update.setStyle("-fx-background-color:  #379237;");
+            });
+            ImageView updateImageView = new ImageView(new Image(getClass().getResourceAsStream("/assets/edit.png")));
+            updateImageView.setFitHeight(15);
+            updateImageView.setFitWidth(15);
+            update.setGraphic(updateImageView);
+            update.setCursor(Cursor.HAND);
+
+            ///////////// Delete button///////////////////
+            Button delete = new Button();
+            setDeleteBtnOnAction(delete, dto.getMobile());
+            delete.setOnMouseEntered(e -> {
+                delete.setStyle("-fx-background-color:  #FF6868");
+            });
+            delete.setStyle("-fx-background-color:  #DF2E38");
+            delete.setOnMouseExited(e -> {
+                delete.setStyle("-fx-background-color:  #DF2E38");
+            });
+            ImageView deleteImageView = new ImageView(new Image(getClass().getResourceAsStream("/assets/trash-bin.png")));
+            deleteImageView.setFitHeight(15);
+            deleteImageView.setFitWidth(15);
+            delete.setGraphic(deleteImageView);
+            delete.setCursor(Cursor.HAND);
+
+            obList.add(
+                    new CustomerTm(
+                            dto.getMobile(),
+                            dto.getF_name(),
+                            dto.getL_name(),
+                            dto.getAddress(),
+                            dto.getDate(),
+                            update,
+                            delete
+
+                    )
+            );
+        }
+        tblCus.setItems(obList);
+
+
     }
 }

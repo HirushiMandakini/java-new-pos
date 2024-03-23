@@ -237,8 +237,6 @@ public class EmployeeFormController {
 
         for (EmployeeDto dto : employeeDtos){
 
-
-
             ////////// Update button////////////////////
             Button update = new Button();
             setUpdateBtnOnAction(update, dto.getEmp_email());

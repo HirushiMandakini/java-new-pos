@@ -2,6 +2,7 @@ package org.example.model;
 
 import org.example.db.DbConnection;
 import org.example.dto.CustomerDto;
+import org.example.dto.EmployeeDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,7 +28,7 @@ public class CustomerModel {
                             resultSet.getString(2),
                             resultSet.getString(3),
                             resultSet.getString(4),
-                            resultSet.getDate(5)
+                            resultSet.getString(5)
                     )
             );
         }
@@ -48,7 +49,7 @@ public class CustomerModel {
             customerDto.setF_name(resultSet.getString(2));
             customerDto.setL_name(resultSet.getString(3));
             customerDto.setAddress(resultSet.getString(4));
-            customerDto.setDate(resultSet.getDate(5));
+            customerDto.setDate(resultSet.getString(5));
 
             return customerDto;
         }
@@ -96,5 +97,28 @@ public class CustomerModel {
         boolean isUpdated = pstm.executeUpdate() >0;
         return isUpdated;
     }
+    public ArrayList<CustomerDto> searchByMobile(String text) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
 
+        String sql = "SELECT * FROM customer WHERE mobile LIKE ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, text + "%");
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<CustomerDto> dtoList = new ArrayList<>();
+
+        while (resultSet.next()){
+            dtoList.add(
+                    new CustomerDto(
+                            resultSet.getString(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5)
+                    )
+            );
+
+        }return dtoList;
+    }
 }

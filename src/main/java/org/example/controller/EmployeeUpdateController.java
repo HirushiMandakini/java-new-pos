@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.example.dto.EmployeeDto;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class UpdateEmployeeController implements Initializable {
+public class EmployeeUpdateController implements Initializable {
     public AnchorPane updatePane;
     public TextField txtFname;
     public TextField txtLname;
