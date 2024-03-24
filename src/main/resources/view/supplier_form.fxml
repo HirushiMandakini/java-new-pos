@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="979.0" prefWidth="1824.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.SupplierFormController">
+<AnchorPane fx:id="empPane" prefHeight="979.0" prefWidth="1824.0" style="-fx-background-color: F6F6F6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.SupplierFormController">
    <children>
-      <Text layoutX="117.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="supplier" wrappingWidth="145.13671875" />
+      <AnchorPane layoutX="48.0" layoutY="48.0" prefHeight="883.0" prefWidth="1722.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 20;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="712.0" layoutY="60.0" prefHeight="47.0" prefWidth="261.0" text="Supplier Details" AnchorPane.bottomAnchor="752.0" AnchorPane.leftAnchor="712.0" AnchorPane.rightAnchor="711.0" AnchorPane.topAnchor="60.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="166.0" prefHeight="27.0" prefWidth="148.0" text="Search Supplier" AnchorPane.bottomAnchor="666.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="1466.0" AnchorPane.topAnchor="166.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSearch" layoutX="70.0" layoutY="203.0" onAction="#txtSearchOnAction" onKeyTyped="#txtSearchOnAction" prefHeight="39.0" prefWidth="318.0" promptText="Enter Find Email" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="203.0" />
+            <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="352.0" layoutY="214.0" onMouseClicked="#searchOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/search%20(1).png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="449.0" layoutY="202.0" onAction="#btnAddSupplierOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="Add Supplier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <TableView fx:id="tblSup" layoutX="113.0" layoutY="280.0" prefHeight="510.0" prefWidth="1500.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="280.0">
+               <columns>
+                  <TableColumn fx:id="colMobile" prefWidth="135.0" text="Mobile" />
+                  <TableColumn fx:id="colFname" prefWidth="150.0" text="F name" />
+                  <TableColumn fx:id="colLname" prefWidth="146.0" text="l name" />
+                  <TableColumn fx:id="colEmail" prefWidth="146.0" text="Email" />
+                  <TableColumn fx:id="colCompany" prefWidth="211.0" text="company" />
+                  <TableColumn fx:id="colEditbtn" prefWidth="62.0" text="Edit" />
+                  <TableColumn fx:id="colDeletebtn" prefWidth="65.0" text="Delete" />
+               </columns>
+            </TableView>
+            <JFXButton buttonType="RAISED" layoutX="761.0" layoutY="202.0" onAction="#btnAddCompanyOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="Register New Company" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
