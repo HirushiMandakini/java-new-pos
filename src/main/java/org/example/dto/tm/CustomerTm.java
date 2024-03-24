@@ -15,8 +15,9 @@ public class CustomerTm {
     private String mobile;
     private String f_name;
     private  String l_name;
+    private String Email;
     private  String address;
-    private Date date;
+    private String date;
     private Button update;
-    private Button remove;
+    private Button delete;
 }

@@ -2,6 +2,7 @@ package org.example.model;
 
 import org.example.db.DbConnection;
 import org.example.dto.CustomerDto;
+import org.example.dto.EmployeeDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,7 +28,8 @@ public class CustomerModel {
                             resultSet.getString(2),
                             resultSet.getString(3),
                             resultSet.getString(4),
-                            resultSet.getDate(5)
+                            resultSet.getString(5),
+                            resultSet.getString(6)
                     )
             );
         }
@@ -47,8 +49,9 @@ public class CustomerModel {
             customerDto.setMobile(resultSet.getString(1));
             customerDto.setF_name(resultSet.getString(2));
             customerDto.setL_name(resultSet.getString(3));
-            customerDto.setAddress(resultSet.getString(4));
-            customerDto.setDate(resultSet.getDate(5));
+            customerDto.setEmail(resultSet.getString(4));
+            customerDto.setAddress(resultSet.getString(5));
+            customerDto.setDate(resultSet.getString(6));
 
             return customerDto;
         }
@@ -57,14 +60,15 @@ public class CustomerModel {
     public static boolean saveCustomer (CustomerDto customerDto) throws SQLException {
         Connection connection =DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO customer (mobile,f_name,l_name,address,date) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO customer (mobile,f_name,l_name,email,address,date) VALUES(?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, customerDto.getMobile());
         pstm.setString(2, customerDto.getF_name());
         pstm.setString(3, customerDto.getL_name());
-        pstm.setString(4, customerDto.getAddress());
-        pstm.setString(5, String.valueOf(customerDto.getDate()));
+        pstm.setString(4, customerDto.getEmail());
+        pstm.setString(5, customerDto.getAddress());
+        pstm.setString(6, String.valueOf(customerDto.getDate()));
 
         boolean isSaved = pstm.executeUpdate()>0;
         return isSaved;
@@ -84,17 +88,42 @@ public class CustomerModel {
     public static boolean updateCustomer(CustomerDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE customer SET f_name=?,l_name=?,address=?,date=? WHERE mobile=? ";
+        String sql = "UPDATE customer SET f_name=?,l_name=?,email=?,address=?,date=? WHERE mobile=? ";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getF_name());
         pstm.setString(2, dto.getL_name());
-        pstm.setString(3, dto.getAddress());
-        pstm.setString(4, String.valueOf(dto.getDate()));
-        pstm.setString(5,dto.getMobile());
+        pstm.setString(3, dto.getEmail());
+        pstm.setString(4, dto.getAddress());
+        pstm.setString(5, String.valueOf(dto.getDate()));
+        pstm.setString(6,dto.getMobile());
 
         boolean isUpdated = pstm.executeUpdate() >0;
         return isUpdated;
     }
+    public ArrayList<CustomerDto> searchByMobile(String text) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
 
+        String sql = "SELECT * FROM customer WHERE mobile LIKE ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, text + "%");
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<CustomerDto> dtoList = new ArrayList<>();
+
+        while (resultSet.next()){
+            dtoList.add(
+                    new CustomerDto(
+                            resultSet.getString(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5),
+                            resultSet.getString(6)
+                    )
+            );
+
+        }return dtoList;
+    }
 }

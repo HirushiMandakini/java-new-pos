@@ -46,13 +46,13 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtPword" layoutX="457.0" layoutY="283.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <TextField fx:id="txtAddress" layoutX="457.0" layoutY="283.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
             <Label layoutX="100.0" layoutY="402.0" prefHeight="20.0" prefWidth="114.0" text="Contact Number">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNic" layoutX="100.0" layoutY="425.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
+            <TextField fx:id="txtMobile" layoutX="100.0" layoutY="425.0" prefHeight="35.0" prefWidth="285.0" style="-fx-background-radius: 20;" />
             <Label layoutX="457.0" layoutY="406.0" prefHeight="20.0" prefWidth="130.0" text="Register Date">
                <font>
                   <Font name="System Bold" size="14.0" />
