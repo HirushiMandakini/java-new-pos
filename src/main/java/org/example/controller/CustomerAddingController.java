@@ -2,40 +2,37 @@ package org.example.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.example.dto.CustomerDto;
-import org.example.dto.EmployeeDto;
 import org.example.model.CustomerModel;
-import org.example.model.EmployeeModel;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class CustomerAddingController {
     public AnchorPane cusAddPane;
     public TextField txtFname;
     public TextField txtLname;
     public TextField txtEmail;
-    public TextField txtPword;
-    public TextField txtNic;
-    public TextField txtCon;
-
-
+    public TextField txtAddress;
+    public TextField txtMobile;
     private CustomerModel customerModel = new CustomerModel();
 
-    public TextField txtAdd;
     public javafx.scene.control.DatePicker DatePicker;
+    public void initialize(){
+        DatePicker.setValue(LocalDate.now());
+    }
 
     public void btnAddedCustomerOnAction(ActionEvent actionEvent) {
-        String conNumText = txtCon.getText();
-        String fnameText = txtFname.getText();
-        String lnameText = txtLname.getText();
-        String addressText = txtAdd.getText();
-        String dateText = DatePicker.getValue().toString();
+        String mobile = txtMobile.getText();
+        String f_name = txtFname.getText();
+        String l_name= txtLname.getText();
+        String email= txtEmail.getText();
+        String address = txtAddress.getText();
+        String date = DatePicker.getValue().toString();
 
-        var dto =new CustomerDto(conNumText,fnameText,lnameText,addressText,dateText);
+        var dto =new CustomerDto(mobile,f_name,l_name,email,address,date);
 
         try{
             boolean isSaved = CustomerModel.saveCustomer(dto);
@@ -43,7 +40,6 @@ public class CustomerAddingController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Successfully saved!!!").show();
 
                 clearFields();
-//              tblEmp.refresh();
 
             }
         } catch (SQLException e) {
@@ -51,10 +47,11 @@ public class CustomerAddingController {
         }
     }
     private void clearFields() {
-        txtCon.setText("");
+        txtMobile.setText("");
         txtFname.setText("");
         txtLname.setText("");
-        txtAdd.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
         DatePicker.setValue((null));
     }
 }

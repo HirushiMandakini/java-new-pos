@@ -22,23 +22,20 @@ public class CustomerUpdateController implements Initializable {
     public TextField txtFname;
     public TextField txtLname;
     public TextField txtEmail;
-    public TextField txtPword;
-    public TextField txtNic;
-    public ComboBox comboPosition;
-    public TextField txtCon;
-    public ComboBox comboGender;
-    public TextField txtAdd;
     public javafx.scene.control.DatePicker DatePicker;
+    public TextField txtAddress;
+    public TextField txtMobile;
     private String mobile = CustomerFormController.StaticMobile;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         //set textfields from table data
         try {
             CustomerDto dto = CustomerModel.getCustomer(mobile);
-            txtCon.setText(dto.getMobile());
+            txtMobile.setText(dto.getMobile());
             txtFname.setText(dto.getF_name());
             txtLname.setText(dto.getL_name());
-            txtAdd.setText(dto.getAddress());
+            txtEmail.setText(dto.getEmail());
+            txtAddress.setText(dto.getAddress());
             DatePicker.setValue(LocalDate.parse(dto.getDate()));
 
         } catch (SQLException e) {
@@ -48,13 +45,14 @@ public class CustomerUpdateController implements Initializable {
     }
 
     public void btnUpdateCusOnAction(ActionEvent actionEvent) {
-        String conNumText = txtCon.getText();
+        String conNumText = txtMobile.getText();
         String fnameText = txtFname.getText();
         String lnameText = txtLname.getText();
-        String addressText = txtAdd.getText();
+        String email = txtEmail.getText();
+        String addressText = txtAddress.getText();
         String dateText = String.valueOf(DatePicker.getValue());
 
-        var dto =new CustomerDto(conNumText,fnameText,lnameText,addressText,dateText);
+        var dto =new CustomerDto(conNumText,fnameText,lnameText,email,addressText,dateText);
 
         try {
             boolean isUpdated = CustomerModel.updateCustomer(dto);
@@ -71,10 +69,11 @@ public class CustomerUpdateController implements Initializable {
         }
     }
     private void clearFields() {
-        txtCon.setText("");
+        txtMobile.setText("");
         txtFname.setText("");
         txtLname.setText("");
-        txtAdd.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
         DatePicker.setValue((null));
     }
 }

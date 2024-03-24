@@ -2,8 +2,7 @@ package org.example.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -19,9 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.example.dto.CustomerDto;
-import org.example.dto.EmployeeDto;
 import org.example.dto.tm.CustomerTm;
-import org.example.dto.tm.EmployeeTm;
 import org.example.model.CustomerModel;
 import org.example.model.EmployeeModel;
 
@@ -33,19 +30,22 @@ import java.util.Optional;
 
 import static org.example.model.CustomerModel.deleteCustomer;
 
+
 public class CustomerFormController {
     public AnchorPane custPane;
     public TableView tblCus;
-    public TableColumn col1;
-    public TableColumn col2;
-    public TableColumn col3;
-    public TableColumn col4;
-    public TableColumn col5;
+
     public TextField txtSearchCustomer;
-    public TableColumn colEdit;
-    public TableColumn colDelete;
 
     static String StaticMobile="";
+    public TableColumn colMobile;
+    public TableColumn colFname;
+    public TableColumn colLastname;
+    public TableColumn colEmail;
+    public TableColumn colAddress;
+    public TableColumn colDate;
+    public TableColumn colUpdatebtn;
+    public TableColumn colDeletebtn;
 
     private CustomerModel customerModel = new CustomerModel();
 
@@ -58,11 +58,14 @@ public class CustomerFormController {
     }
 
     public void setCellValueFactory() {
-        col1.setCellValueFactory(new PropertyValueFactory<>("mobile"));
-        col2.setCellValueFactory(new PropertyValueFactory<>("f_name"));
-        col3.setCellValueFactory(new PropertyValueFactory<>("l_name"));
-        col4.setCellValueFactory(new PropertyValueFactory<>("address"));
-        col5.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+        colFname.setCellValueFactory(new PropertyValueFactory<>("f_name"));
+        colLastname.setCellValueFactory(new PropertyValueFactory<>("l_name"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colUpdatebtn.setCellValueFactory(new PropertyValueFactory<>("update"));
+        colDeletebtn.setCellValueFactory(new PropertyValueFactory<>("delete"));
 
     }
     public void loadAllCustomer(){
@@ -111,6 +114,7 @@ public class CustomerFormController {
                                 dto.getMobile(),
                                 dto.getF_name(),
                                 dto.getL_name(),
+                                dto.getEmail(),
                                 dto.getAddress(),
                                 dto.getDate(),
                                 update,
@@ -173,9 +177,9 @@ public class CustomerFormController {
                 }
         );
     }
-    private void deleteCustomer(String id) {
+   private void deleteCustomer(String mobile) {
         try {
-            boolean isDeleted = EmployeeModel.deleteEmployee(id);
+            boolean isDeleted = CustomerModel.deleteCustomer(mobile);
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted!").show();
             } else {
@@ -251,6 +255,7 @@ public class CustomerFormController {
                             dto.getMobile(),
                             dto.getF_name(),
                             dto.getL_name(),
+                            dto.getEmail(),
                             dto.getAddress(),
                             dto.getDate(),
                             update,
