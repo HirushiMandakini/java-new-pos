@@ -18,6 +18,7 @@ create table customer(
     mobile varchar(30) primary key ,
     f_name varchar(40),
     l_name varchar(40),
+    email varchar(40),
     address varchar(50),
     date date
 );
