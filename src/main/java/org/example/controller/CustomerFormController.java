@@ -155,7 +155,6 @@ public class CustomerFormController {
                             loadAllCustomer();
                         }
                     });
-
                 }
         );
 
@@ -260,12 +259,9 @@ public class CustomerFormController {
                             dto.getDate(),
                             update,
                             delete
-
                     )
             );
         }
         tblCus.setItems(obList);
-
-
     }
 }
