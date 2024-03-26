@@ -101,10 +101,31 @@ public class CustomerModel {
         boolean isUpdated = pstm.executeUpdate() >0;
         return isUpdated;
     }
-    public ArrayList<CustomerDto> searchByMobile(String text) throws SQLException {
+    public ArrayList<CustomerDto> searchByMobile(String searchText) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM customer WHERE mobile LIKE ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, searchText + "%");
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        ArrayList<CustomerDto> customerList = new ArrayList<>();
+
+        while (resultSet.next()) {
+            CustomerDto customerDto = new CustomerDto(
+                    resultSet.getString("mobile"),
+                    resultSet.getString("f_name"),
+                    resultSet.getString("l_name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("address"),
+                    resultSet.getString("date")
+            );
+            customerList.add(customerDto);
+        }
+
+        return customerList;
+    }
+    /*   String sql = "SELECT * FROM customer WHERE mobile LIKE ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, text + "%");
 
@@ -124,6 +145,6 @@ public class CustomerModel {
                     )
             );
 
-        }return dtoList;
+        }return dtoList;*/
     }
-}
+//}
