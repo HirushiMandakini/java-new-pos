@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.controller.supplier_controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,9 +27,11 @@ public class SupplierFormController {
     public TableColumn colDeletebtn;
 
     public void searchOnAction(MouseEvent mouseEvent) {
+
     }
 
     public void txtSearchOnAction(KeyEvent keyEvent) {
+
     }
 
     public void btnAddSupplierOnAction(ActionEvent actionEvent) throws IOException {

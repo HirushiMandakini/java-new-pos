@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.controller.customer_controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;

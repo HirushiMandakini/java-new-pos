@@ -1,30 +1,14 @@
-package org.example.controller;
+package org.example.controller.employee_controller;
 
-import com.ctc.wstx.shaded.msv_core.datatype.xsd.datetime.IDateTimeValueType;
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import org.example.dto.EmployeeDto;
-import org.example.dto.tm.EmployeeTm;
 import org.example.model.EmployeeModel;
 
-import javax.swing.*;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EmployeeAddingFormController implements Initializable {

@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cusAddPane" prefHeight="807.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.SupplierCompanyRegistration">
+<AnchorPane fx:id="cusAddPane" prefHeight="807.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.supplier_controller.SupplierCompanyRegistration">
     <children>
         <ImageView fitHeight="807.0" fitWidth="1100.0" pickOnBounds="true">
             <image>
                 <Image url="@../assets/Green%20and%20White%20Photographic%20Blogger%20Bio-Link%20Website%20(3)%201.jpg" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="120.0" layoutY="78.0" prefHeight="659.0" prefWidth="840.0" style="-fx-background-color: white; -fx-background-radius: 20;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="104.0">
+        <AnchorPane layoutX="130.0" layoutY="106.0" prefHeight="659.0" prefWidth="840.0" style="-fx-background-color: white; -fx-background-radius: 20;" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="106.0">
             <children>
                 <Label layoutX="100.0" layoutY="120.0" prefHeight="20.0" prefWidth="114.0" text="Company Name">
                     <font>
@@ -41,15 +41,31 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <JFXButton buttonType="RAISED" layoutX="292.0" layoutY="539.0" onAction="#btnAddedCompanyOnAction" prefHeight="35.0" prefWidth="256.0" style="-fx-background-color: #1A4491; -fx-background-radius: 20;" text="Added New Company" textFill="WHITE" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="292.0" AnchorPane.rightAnchor="292.0" AnchorPane.topAnchor="538.0">
+                <JFXButton buttonType="RAISED" layoutX="100.0" layoutY="387.0" onAction="#btnAddedCompanyOnAction" prefHeight="42.0" prefWidth="122.0" style="-fx-background-color: #1A4491; -fx-background-radius: 20;" text="save" textFill="WHITE" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="618.0" AnchorPane.topAnchor="387.0">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </JFXButton>
             <DatePicker fx:id="datePicker" layoutX="457.0" layoutY="283.0" prefHeight="35.0" prefWidth="285.0" />
+            <JFXButton buttonType="RAISED" layoutX="324.0" layoutY="396.0" onAction="#btnUpdatedCompanyOnAction" prefHeight="42.0" prefWidth="122.0" style="-fx-background-color: #1A4491; -fx-background-radius: 20;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="548.0" layoutY="387.0" onAction="#btnDeletedCompanyOnAction" prefHeight="42.0" prefWidth="122.0" style="-fx-background-color: #1A4491; -fx-background-radius: 20;" text="delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="335.0" layoutY="36.0" onAction="#btnSearchCompanyOnAction" prefHeight="42.0" prefWidth="72.0" style="-fx-background-color: #1A4491; -fx-background-radius: 20;" text="search" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="txtSearch" layoutX="74.0" layoutY="40.0" onAction="#nameSearchOnAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 20;" />
             </children>
         </AnchorPane>
-        <Label layoutX="455.0" layoutY="32.0" prefHeight="27.0" prefWidth="190.0" text="Add Supplier Details" textFill="WHITE" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="40.0">
+        <Label layoutX="455.0" layoutY="32.0" prefHeight="27.0" prefWidth="190.0" text="company registration" textFill="WHITE" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="40.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
