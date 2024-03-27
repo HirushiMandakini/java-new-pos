@@ -29,7 +29,6 @@ public class CompanyModel {
                             resultSet.getString(4)
                     )
             );
-
         }return dtoList;
     }
 
