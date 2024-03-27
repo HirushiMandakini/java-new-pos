@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.controller.customer_controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,15 +20,12 @@ import javafx.stage.WindowEvent;
 import org.example.dto.CustomerDto;
 import org.example.dto.tm.CustomerTm;
 import org.example.model.CustomerModel;
-import org.example.model.EmployeeModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static org.example.model.CustomerModel.deleteCustomer;
 
 
 public class CustomerFormController {
@@ -37,7 +34,7 @@ public class CustomerFormController {
 
     public TextField txtSearchCustomer;
 
-    static String StaticMobile="";
+    static String StaticMobile=null;
     public TableColumn colMobile;
     public TableColumn colFname;
     public TableColumn colLastname;

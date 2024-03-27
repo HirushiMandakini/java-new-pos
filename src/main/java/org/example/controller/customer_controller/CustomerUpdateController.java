@@ -1,16 +1,12 @@
-package org.example.controller;
+package org.example.controller.customer_controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.example.dto.CustomerDto;
-import org.example.dto.EmployeeDto;
 import org.example.model.CustomerModel;
-import org.example.model.EmployeeModel;
 
 import java.net.URL;
 import java.sql.SQLException;

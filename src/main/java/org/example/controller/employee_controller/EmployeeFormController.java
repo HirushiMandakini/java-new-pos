@@ -1,9 +1,7 @@
-package org.example.controller;
+package org.example.controller.employee_controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +22,6 @@ import org.example.dto.tm.EmployeeTm;
 import org.example.model.EmployeeModel;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

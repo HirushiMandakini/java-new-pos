@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.controller.supplier_controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
@@ -13,5 +13,6 @@ public class SupplierUpdateController {
     public ComboBox comboCompany;
 
     public void btnUpdatedSupplierOnAction(ActionEvent actionEvent) {
+
     }
 }
