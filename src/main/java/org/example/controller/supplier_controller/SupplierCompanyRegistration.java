@@ -89,14 +89,16 @@ public class SupplierCompanyRegistration {
     }
 
     public void btnDeletedCompanyOnAction(ActionEvent actionEvent) {
-        String name = txtCompany.getText();
+        String companyText= txtCompany.getText();
 
         try {
-            boolean isDeleted = CompanyModel.deleteCompany(name);
+            boolean isDeleted = CompanyModel.deleteCompany(companyText);
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "company deleted!").show();
+                clearFields();
             } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "company not deleted!").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

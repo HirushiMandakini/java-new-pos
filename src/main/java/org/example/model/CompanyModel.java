@@ -52,7 +52,7 @@ public class CompanyModel {
     public static boolean deleteCompany(String company_name) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "DELETE FROM company WHERE comany_name=?";
+        String sql = "DELETE FROM company WHERE company_name=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1,company_name);
