@@ -25,11 +25,13 @@ create table customer(
 );
 
 create table supplier(
-    mobile varchar(50) not null PRIMARY KEY ,
-    fname varchar(50) ,
-    lname varchar(50),
-    email varchar(50),
-    company varchar(50)
+                         mobile varchar(50) not null PRIMARY KEY ,
+                         fname varchar(50) ,
+                         lname varchar(50),
+                         email varchar(50),
+                         company varchar(50),
+                         constraint foreign key(company) references company(company_name)on delete cascade on update cascade
+
 );
 
 create table company(
