@@ -2,7 +2,6 @@ package org.example.model;
 
 import org.example.db.DbConnection;
 import org.example.dto.CustomerDto;
-import org.example.dto.EmployeeDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -113,38 +112,18 @@ public class CustomerModel {
 
         while (resultSet.next()) {
             CustomerDto customerDto = new CustomerDto(
-                    resultSet.getString("mobile"),
-                    resultSet.getString("f_name"),
-                    resultSet.getString("l_name"),
-                    resultSet.getString("email"),
-                    resultSet.getString("address"),
-                    resultSet.getString("date")
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+
             );
             customerList.add(customerDto);
         }
 
         return customerList;
     }
-    /*   String sql = "SELECT * FROM customer WHERE mobile LIKE ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, text + "%");
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        ArrayList<CustomerDto> dtoList = new ArrayList<>();
-
-        while (resultSet.next()){
-            dtoList.add(
-                    new CustomerDto(
-                            resultSet.getString(1),
-                            resultSet.getString(2),
-                            resultSet.getString(3),
-                            resultSet.getString(4),
-                            resultSet.getString(5),
-                            resultSet.getString(6)
-                    )
-            );
-
-        }return dtoList;*/
     }
-//}
+

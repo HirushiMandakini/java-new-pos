@@ -7,10 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import org.example.dto.CompanyDto;
-import org.example.dto.EmployeeDto;
 import org.example.dto.SupplierDto;
 import org.example.model.CompanyModel;
-import org.example.model.EmployeeModel;
 import org.example.model.SupplierModel;
 
 import java.sql.SQLException;
@@ -77,8 +75,6 @@ public class SupplierAddingController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Successfully saved!!!").show();
 
                 clearFields();
-//              tblEmp.refresh();
-
 
             }
         } catch (SQLException e) {
