@@ -16,12 +16,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import org.example.controller.employee_controller.EmployeeAddingFormController;
-import org.example.dto.EmployeeDto;
 import org.example.dto.SupplierDto;
-import org.example.dto.tm.EmployeeTm;
 import org.example.dto.tm.SupplierTm;
-import org.example.model.EmployeeModel;
 import org.example.model.SupplierModel;
 
 import java.io.IOException;
