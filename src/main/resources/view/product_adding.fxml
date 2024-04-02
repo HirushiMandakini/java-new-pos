@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="853.0" prefWidth="1293.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ProductAddingController">
+   <children>
+      <Label layoutX="34.0" layoutY="179.0" prefHeight="27.0" prefWidth="148.0" text="Product Name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtProductName" layoutX="34.0" layoutY="207.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="34.0" layoutY="333.0" prefHeight="27.0" prefWidth="148.0" text="cost price">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCostPrice" layoutX="34.0" layoutY="361.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="34.0" layoutY="257.0" prefHeight="27.0" prefWidth="148.0" text="category">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCategory" layoutX="34.0" layoutY="285.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="34.0" layoutY="406.0" prefHeight="27.0" prefWidth="148.0" text="MRP">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMrp" layoutX="34.0" layoutY="434.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="42.0" layoutY="490.0" prefHeight="27.0" prefWidth="148.0" text="Manufacture date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="569.0" prefHeight="27.0" prefWidth="148.0" text="expire date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="413.0" layoutY="202.0" prefHeight="27.0" prefWidth="148.0" text="In qty">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtQty" layoutX="412.0" layoutY="229.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="413.0" layoutY="276.0" prefHeight="27.0" prefWidth="148.0" text="Free qty">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFreeQty" layoutX="413.0" layoutY="300.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="413.0" layoutY="424.0" prefHeight="27.0" prefWidth="148.0" text="Stock bin">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStockBin" layoutX="413.0" layoutY="452.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="413.0" layoutY="343.0" prefHeight="27.0" prefWidth="148.0" text="Minimun stock alert">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStockAlert" layoutX="413.0" layoutY="371.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="34.0" layoutY="104.0" prefHeight="27.0" prefWidth="148.0" text="Barcord ">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="barcord" layoutX="34.0" layoutY="134.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <DatePicker fx:id="DateManufacture" layoutX="42.0" layoutY="521.0" prefHeight="38.0" prefWidth="303.0" />
+      <DatePicker fx:id="dateExpire" layoutX="41.0" layoutY="599.0" prefHeight="38.0" prefWidth="303.0" />
+      <JFXButton buttonType="RAISED" layoutX="367.0" layoutY="134.0" onAction="#btnGenerateBidOnAction" prefHeight="39.0" prefWidth="158.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="generate barcode " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="764.0" layoutY="660.0" onAction="#btnAddProductOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="Add Product" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="740.0" layoutY="101.0" prefHeight="27.0" prefWidth="148.0" text="Supplier">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="740.0" layoutY="192.0" prefHeight="27.0" prefWidth="148.0" text="Invoice Number">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtInvoiceNum" layoutX="740.0" layoutY="220.0" prefHeight="39.0" prefWidth="318.0" style="-fx-background-radius: 20;" />
+      <Label layoutX="747.0" layoutY="268.0" prefHeight="27.0" prefWidth="148.0" text="Invoice date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="757.0" layoutY="354.0" prefHeight="27.0" prefWidth="148.0" text="Invoice Amount">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="757.0" layoutY="512.0" prefHeight="27.0" prefWidth="148.0" text="Paid amount">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPaidAmount" layoutX="756.0" layoutY="533.0" prefHeight="39.0" prefWidth="318.0" promptText="90000" style="-fx-background-radius: 20;" />
+      <Label layoutX="757.0" layoutY="431.0" prefHeight="27.0" prefWidth="148.0" text="Invoice Due date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="758.0" layoutY="587.0" prefHeight="27.0" prefWidth="148.0" text="Balance to pay">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="1075.0" layoutY="122.0" onAction="#btnAddNewSup" prefHeight="39.0" prefWidth="111.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="Add new sup" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ComboBox fx:id="comboSupplier" layoutX="739.0" layoutY="130.0" prefHeight="39.0" prefWidth="276.0" />
+      <Label fx:id="lblBalance" layoutX="888.0" layoutY="582.0" prefHeight="17.0" prefWidth="137.0" text="10000.00">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="invoiceDate" layoutX="748.0" layoutY="304.0" prefHeight="38.0" prefWidth="303.0" />
+      <DatePicker fx:id="invoiceDueDate" layoutX="755.0" layoutY="458.0" prefHeight="38.0" prefWidth="303.0" />
+      <Label fx:id="lblInvoiceAmount" layoutX="753.0" layoutY="386.0" prefHeight="17.0" prefWidth="137.0" text="100000.00">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="1083.0" layoutY="210.0" onAction="#btnGenerateInvOnAction" prefHeight="39.0" prefWidth="175.0" style="-fx-background-radius: 20; -fx-background-color: #1A4491;" text="generate invoice num" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="462.0" layoutY="39.0" prefHeight="27.0" prefWidth="387.0" text="Product Adding Form">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

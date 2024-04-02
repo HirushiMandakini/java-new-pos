@@ -33,7 +33,7 @@ public class   NavigationbarFormController {
 
     public void btnGRNOnAction(ActionEvent actionEvent) throws IOException {
     this.pane.getChildren().clear();
-    this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/grn_form.fxml")));
+    this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/product_form.fxml")));
     }
 
     public void btnSupOnAction(ActionEvent actionEvent) throws IOException {
