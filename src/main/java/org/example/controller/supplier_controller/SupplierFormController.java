@@ -266,6 +266,13 @@ public class SupplierFormController {
         stage.setTitle("Supplier Adding Form");
         stage.setScene(scene);
 
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                loadAllSupplier();
+            }
+        });
+
         stage.centerOnScreen();
         stage.show();
     }
@@ -277,6 +284,7 @@ public class SupplierFormController {
         Stage stage = new Stage();
         stage.setTitle("Company register Form");
         stage.setScene(scene);
+
 
         stage.centerOnScreen();
         stage.show();

@@ -35,43 +35,6 @@ public class ProductFormController {
     public TableColumn col12;
 
 
-    private String generateRandomString(int length) {
-        String characters = "0123456789";
-        SecureRandom random = new SecureRandom();
-        StringBuilder sb = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            int randomIndex = random.nextInt(characters.length());
-            sb.append(characters.charAt(randomIndex));
-        }
-        return sb.toString();
-    }
-    public void btnGenerateBidOnAction(ActionEvent actionEvent) {
-        int length = 15; // Specify the length of the random string
-
-        // Generate a random alphanumeric string of specified length
-        String randomString = generateRandomString(length);
-
-        // Fill the barcode text field with the generated random string
-        barcord.setText(randomString);
-
-    }
-
-    public void btnAddProductOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnAddNewSup(ActionEvent actionEvent) {
-    }
-
-    public void btnGenerateInvOnAction(ActionEvent actionEvent) {
-        int length = 10; // Specify the length of the random string
-
-        // Generate a random alphanumeric string of specified length
-        String randomString = generateRandomString(length);
-
-        // Fill the barcode text field with the generated random string
-        txtInvoiceNum.setText(randomString);
-    }
-
     public void btnAddNewProductOnAction(ActionEvent actionEvent) throws IOException {
         Parent anchorpane = FXMLLoader.load(getClass().getResource("/view/product_adding.fxml"));
         Scene scene = new Scene(anchorpane);
