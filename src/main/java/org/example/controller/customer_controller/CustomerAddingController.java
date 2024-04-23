@@ -21,6 +21,7 @@ public class CustomerAddingController {
 
     public javafx.scene.control.DatePicker DatePicker;
     public void initialize(){
+
         DatePicker.setValue(LocalDate.now());
     }
 

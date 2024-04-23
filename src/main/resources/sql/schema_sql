@@ -40,3 +40,16 @@ create table company(
     location varchar(50),
     date date
 );
+
+create table product(
+    barcode varchar(50) primary key not null ,
+    supName varchar(50),
+    productName varchar(50),
+    productLocation varchar(50),
+    category varchar(50),
+    qtyOnHand varchar(50),
+    buyingPrice varchar(50),
+    sellingPrice varchar(50),
+    ManufacturerDate varchar(50),
+    expiryDate varchar(50)
+);

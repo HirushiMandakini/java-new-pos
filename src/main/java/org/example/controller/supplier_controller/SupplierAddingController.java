@@ -22,8 +22,11 @@ public class SupplierAddingController {
     public ComboBox comboCompany;
 
     CompanyModel companyModel=new CompanyModel();
+    SupplierModel supplierModel=new SupplierModel();
     public void initialize() {
+
         loadCompanyNames();
+
     }
     void clearFields(){
         txtFname.clear();
@@ -75,10 +78,14 @@ public class SupplierAddingController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Successfully saved!!!").show();
 
                 clearFields();
-
+                refreshTable();
+                
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    private void refreshTable() {
     }
 }
