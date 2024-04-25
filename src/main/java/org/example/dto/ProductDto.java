@@ -1,4 +1,10 @@
 package org.example.dto;
+import lombok.*;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 
 public class ProductDto {
     private String barcode;
