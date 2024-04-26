@@ -1,14 +1,25 @@
 package org.example.dto;
+import lombok.*;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 
 public class ProductDto {
     private String barcode;
-    private String supName;
     private String productName;
-    private String productLocation;
     private String category;
-    private String qtyOnHand;
-    private String buyingPrice;
-    private String sellingPrice;
-    private String ManufacturerDate;
-    private String expiryDate;
+    private double costPrice;
+    private double sellingPrice;
+    private String inQty;
+    private String freeQty;
+    private String totQty;
+    private String minStockAlert;
+    private String stockBin;
+    private String invNum;
+    private String supplierName;
+    private String expDate;
+    private String mfdDate;
+
 }

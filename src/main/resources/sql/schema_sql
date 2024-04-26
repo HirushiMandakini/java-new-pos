@@ -41,15 +41,40 @@ create table company(
     date date
 );
 
-create table product(
-    barcode varchar(50) primary key not null ,
-    supName varchar(50),
-    productName varchar(50),
-    productLocation varchar(50),
-    category varchar(50),
-    qtyOnHand varchar(50),
-    buyingPrice varchar(50),
-    sellingPrice varchar(50),
-    ManufacturerDate varchar(50),
-    expiryDate varchar(50)
+
+create table invoice(
+                        invoiceNum varchar(50)primary key not null ,
+                        invDate date,
+                        invDueDate date,
+                        invTotal decimal(10,2),
+                        invPaid decimal(10,2),
+                        invBalance decimal(10,2),
+                        supName varchar(50)
 );
+
+create table product(
+                        barcode varchar(50) primary key not null,
+                        productName varchar(50),
+                        category varchar(50),
+                        costPrice decimal(10,2),
+                        sellingPrice decimal(10,2),
+                        inQty varchar(50),
+                        freeQty varchar(50),
+                        totQty varchar(50),
+                        minStockAlert varchar(50),
+                        stockBin varchar(50),
+                        invNum varchar(50),
+                        supplierName VARCHAR(50), -- Add supplier name column to product table
+                        expDate date,
+                        mfdDate date,
+                        constraint foreign key(invNum) references invoice(invoiceNum)on delete cascade on update cascade
+
+);
+
+-- Add foreign key constraint between product and supplier table
+ALTER TABLE product
+    ADD CONSTRAINT fk_supplier_name FOREIGN KEY (supplierName) REFERENCES supplier(fname);
+
+-- Add foreign key constraint between invoice and supplier table
+ALTER TABLE invoice
+    ADD CONSTRAINT fk_invoice_supplier FOREIGN KEY (supName) REFERENCES supplier(fname);
