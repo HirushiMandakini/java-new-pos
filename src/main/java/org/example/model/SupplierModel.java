@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.db.DbConnection;
+import org.example.dto.CompanyDto;
 import org.example.dto.SupplierDto;
 
 import java.sql.Connection;
@@ -126,4 +127,5 @@ public class SupplierModel {
 
         }return dtoList;
     }
+    
 }

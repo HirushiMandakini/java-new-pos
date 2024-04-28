@@ -67,6 +67,11 @@ create table product(
                         supplierName VARCHAR(50), -- Add supplier name column to product table
                         expDate date,
                         mfdDate date,
+                        totalPayment varchar(50),
+                        paidAmount varchar(50),
+                        dueBalance varchar(50),
+                        invDate date,
+                        dueDate date,
                         constraint foreign key(invNum) references invoice(invoiceNum)on delete cascade on update cascade
 
 );
@@ -75,6 +80,33 @@ create table product(
 ALTER TABLE product
     ADD CONSTRAINT fk_supplier_name FOREIGN KEY (supplierName) REFERENCES supplier(fname);
 
+
 -- Add foreign key constraint between invoice and supplier table
 ALTER TABLE invoice
     ADD CONSTRAINT fk_invoice_supplier FOREIGN KEY (supName) REFERENCES supplier(fname);
+
+# add foreign key constraint between invoice and product
+# add invDate
+CREATE INDEX idx_invDate ON invoice(invDate);
+ALTER TABLE product
+    ADD CONSTRAINT fk_invoice_invDate FOREIGN KEY (invDate) REFERENCES invoice(invDate);
+
+# add invoice to dueDate
+CREATE INDEX idx_invDueDate ON invoice(invDueDate);
+ALTER TABLE product
+    ADD CONSTRAINT fk_invoice_invDueDate FOREIGN KEY (dueDate) REFERENCES invoice(invDate);
+
+# add paid amount
+ALTER TABLE product MODIFY paidAmount DECIMAL(10,2);
+ALTER TABLE product
+    ADD CONSTRAINT fk_invoice_invPaid FOREIGN KEY (paidAmount) REFERENCES invoice(invPaid);
+
+# add duebalance
+ALTER TABLE product MODIFY dueBalance DECIMAL(10,2);
+ALTER TABLE product
+    ADD CONSTRAINT fk_invoice_invBalance FOREIGN KEY (dueBalance) REFERENCES invoice(invBalance);
+
+# add totalPayment
+CREATE INDEX idx_invTotal ON invoice(invTotal);
+ALTER TABLE product
+    ADD CONSTRAINT fk_invoice_invTotal FOREIGN KEY (totalPayment) REFERENCES invoice(invTotal);

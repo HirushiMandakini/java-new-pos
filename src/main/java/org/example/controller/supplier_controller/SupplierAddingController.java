@@ -24,8 +24,8 @@ public class SupplierAddingController {
     CompanyModel companyModel=new CompanyModel();
     SupplierModel supplierModel=new SupplierModel();
     public void initialize() {
-
         loadCompanyNames();
+
 
     }
     void clearFields(){
@@ -51,6 +51,7 @@ public class SupplierAddingController {
             throw new RuntimeException(e);
         }
     }
+
 
     public void comboCompanyNameOnAction(ActionEvent actionEvent) {
         String companyName = (String) comboCompany.getValue();
@@ -79,6 +80,7 @@ public class SupplierAddingController {
 
                 clearFields();
                 refreshTable();
+
                 
             }
         } catch (SQLException e) {

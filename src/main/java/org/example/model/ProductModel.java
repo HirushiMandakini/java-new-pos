@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.db.DbConnection;
+import org.example.dto.CompanyDto;
 import org.example.dto.CustomerDto;
 import org.example.dto.ProductDto;
 
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductModel {
+
+
     public static List<ProductDto> getAllProduct() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -37,7 +40,12 @@ public class ProductModel {
                             resultSet.getString(11),
                             resultSet.getString(12),
                             resultSet.getString(13),
-                            resultSet.getString(14)
+                            resultSet.getString(14),
+                            resultSet.getDouble(15),
+                            resultSet.getDouble(16),
+                            resultSet.getDouble(17),
+                            resultSet.getString(18),
+                            resultSet.getString(19)
                     )
             );
         }
@@ -68,6 +76,11 @@ public class ProductModel {
             productDto.setSupplierName(resultSet.getString(12));
             productDto.setExpDate(resultSet.getString(13));
             productDto.setMfdDate(resultSet.getString(14));
+            productDto.setTotalPayment(resultSet.getDouble(15));
+            productDto.setPaidAmount(resultSet.getDouble(16));
+            productDto.setDueBalance(resultSet.getDouble(17));
+            productDto.setInvDate(resultSet.getString(18));
+            productDto.setDueDate(resultSet.getString(19));
 
             return productDto;
         }
@@ -76,7 +89,7 @@ public class ProductModel {
     public static boolean saveProduct (ProductDto productDto) throws SQLException {
         Connection connection =DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO product (barcode,productName,category,costPrice,sellingPrice,inQty,freeQty,totQty,minStockAlert,stockBin,invNum,supplierName,expDate,mfdDate) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO product (barcode,productName,category,costPrice,sellingPrice,inQty,freeQty,totQty,minStockAlert,stockBin,invNum,supplierName,expDate,mfdDate,totalPayment,paidAmount,dueBalance,invDate,dueDate) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, productDto.getBarcode());
@@ -93,6 +106,11 @@ public class ProductModel {
         pstm.setString(12, productDto.getSupplierName());
         pstm.setString(13, productDto.getExpDate());
         pstm.setString(14, productDto.getMfdDate());
+        pstm.setString(15, String.valueOf(productDto.getTotalPayment()));
+        pstm.setString(16, String.valueOf(productDto.getPaidAmount()));
+        pstm.setString(17, String.valueOf(productDto.getDueBalance()));
+        pstm.setString(18, productDto.getInvDate());
+        pstm.setString(19, productDto.getDueDate());
 
         boolean isSaved = pstm.executeUpdate()>0;
         return isSaved;
@@ -112,7 +130,7 @@ public class ProductModel {
     public static boolean updateProduct(ProductDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE product SET productName=?,category=?,costPrice=?,sellingPrice=?,inQty=?,freeQty=?,totQty=?,minStockAlert=?,stockBin=?,invNum=?,supplierName=?,expDate=?,mfdDate=? WHERE barcode=? ";
+        String sql = "UPDATE product SET productName=?,category=?,costPrice=?,sellingPrice=?,inQty=?,freeQty=?,totQty=?,minStockAlert=?,stockBin=?,invNum=?,supplierName=?,expDate=?,mfdDate=?,totalPayment=?,paidAmount=?,dueBalance=?,invDate=?,dueDate=? WHERE barcode=? ";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getProductName());
@@ -129,6 +147,12 @@ public class ProductModel {
         pstm.setString(12, dto.getExpDate());
         pstm.setString(13, dto.getMfdDate());
         pstm.setString(14, dto.getBarcode());
+        pstm.setDouble(15, dto.getTotalPayment());
+        pstm.setDouble(16, dto.getPaidAmount());
+        pstm.setDouble(17, dto.getDueBalance());
+        pstm.setString(18, dto.getInvDate());
+        pstm.setString(19, dto.getDueDate());
+
 
         boolean isUpdated = pstm.executeUpdate() >0;
         return isUpdated;
@@ -158,12 +182,17 @@ public class ProductModel {
                     resultSet.getString(11),
                     resultSet.getString(12),
                     resultSet.getString(13),
-                    resultSet.getString(14)
-
+                    resultSet.getString(14),
+                    resultSet.getDouble(15),
+                    resultSet.getDouble(16),
+                    resultSet.getDouble(17),
+                    resultSet.getString(18),
+                    resultSet.getString(19)
             );
             productList.add(productDto);
         }
 
         return productList;
     }
+
 }

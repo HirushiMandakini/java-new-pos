@@ -14,5 +14,5 @@ public class SupplierTm {
     private String email;
     private String company;
     private Button update;
-    private Button remove;
+    private Button delete;
 }
